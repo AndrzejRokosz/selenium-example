@@ -14,19 +14,31 @@ public class Init {
 
 	public static WebDriver getDriver() {
 		System.setProperty("webdriver.chrome.driver", "D:\\LaitProject\\chromedriver.exe");
-    	DesiredCapabilities capabilities= DesiredCapabilities.chrome();
-    	driver=new ChromeDriver();
-    	driver.get("http:///newtours.demoaut.com");
+		DesiredCapabilities capabilities = DesiredCapabilities.chrome();
+		if (driver == null) {
+
+			driver = new ChromeDriver();
+			driver.get("http:///newtours.demoaut.com");
+			return driver;
+		} else {
+			return driver;
+		}
+
 //		driver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
-		sleep(1000);
-		return driver;
+//		sleep(1000);
+//		return driver;
 	}
-	
+
 	public static void endTest() {
 		driver.quit();
+		driver=null;
 	}
-	
-	
+
+	/**
+	 * Metoda wstrzymuje wykonanie programu na X milisekund
+	 * 
+	 * @param mSeconds
+	 */
 	public static void sleep(int mSeconds) {
 		try {
 			Thread.sleep(mSeconds);
