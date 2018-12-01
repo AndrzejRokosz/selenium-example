@@ -19,7 +19,7 @@ public class LoginTest {
 	public void openPage() {
 		driver = Init.getDriver();
 	}
-
+	@Ignore
 	@Test
 
 	public void clickOnMenuItems() {
