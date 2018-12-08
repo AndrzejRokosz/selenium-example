@@ -1,5 +1,7 @@
 package pl.lait.selenium1;
 
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
@@ -7,6 +9,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.remote.RemoteWebDriver;
 
 public class Init {
 
@@ -15,9 +18,17 @@ public class Init {
 	public static WebDriver getDriver() {
 		System.setProperty("webdriver.chrome.driver", "D:\\LaitProject\\chromedriver.exe");
 		DesiredCapabilities capabilities = DesiredCapabilities.chrome();
+		URL url= null;
+		try {
+		url = new URL("http://192.168.0.118:4444/wd/hub");
+		} catch (MalformedURLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		if (driver == null) {
 
-			driver = new ChromeDriver();
+//			driver = new ChromeDriver();
+			driver= new RemoteWebDriver(url, capabilities);
 			driver.get("http:///newtours.demoaut.com");
 			return driver;
 		} else {

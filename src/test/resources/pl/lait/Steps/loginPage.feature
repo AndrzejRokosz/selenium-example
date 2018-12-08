@@ -20,3 +20,4 @@ Feature: Flight reservation
 		And I fly with "Blue Skies Airlines"
 		And I click button
 		Then I should see next page
+		

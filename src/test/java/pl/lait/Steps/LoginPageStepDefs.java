@@ -82,8 +82,7 @@ public class LoginPageStepDefs {
 
 	@Then("^I should see next page$")
 	public void i_should_see_next_page() throws Throwable {
-	    // Write code here that turns the phrase above into concrete actions
-	    throw new PendingException();
+	    Init.endTest();
 	}
 
 	
